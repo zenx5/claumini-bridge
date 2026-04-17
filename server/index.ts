@@ -39,6 +39,6 @@ app.use(generateRouter(bridgeContext))
 server.listen(PORT, () => {
     console.log(`🚀 Servidor puente corriendo en el puerto ${PORT}`);
     console.log(`🔌 WebSocket disponible en: ws://localhost:${PORT}`);
-    console.log(`📡 API HTTP disponible en: http://localhost:${PORT}/api/ask-gemini`);
+    console.log(`📡 API HTTP disponible en: http://localhost:${PORT}/api/ask`);
     console.log(`🤖 Endpoint tipo OpenAI: http://localhost:${PORT}/v1/chat/completions`);
 });

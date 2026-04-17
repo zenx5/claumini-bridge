@@ -6,7 +6,7 @@ export default function generateRouter(bridgeContext:any){
 
     router.get('/info', (req, res) => res.send('Claumini Bridge is running'))
 
-    router.post('/api/ask-gemini', single(bridgeContext))
+    router.post('/api/ask', single(bridgeContext))
 
     router.post(['/v1/chat/completions', '/v1', '/chat/completions', '/api/chat'],integrationQuery(bridgeContext))
 
