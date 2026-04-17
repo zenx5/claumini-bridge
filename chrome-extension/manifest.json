@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Suscription to Friend",
+  "version": "1.0",
+  "description": "Conecta un servidor externo con el chat de la IA.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "*://claumini.google.com/*",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://claumini.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

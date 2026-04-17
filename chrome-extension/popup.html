@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; width: 320px; padding: 15px; }
+    label { display: block; margin-top: 10px; font-weight: bold; font-size: 12px;}
+    input { width: 100%; padding: 5px; margin-top: 5px; box-sizing: border-box; }
+    button { margin-top: 15px; width: 100%; padding: 8px; background: #0b57d0; color: white; border: none; cursor: pointer; border-radius: 4px;}
+    button:hover { background: #0842a0; }
+    #status { margin-top: 10px; color: green; font-size: 12px; text-align: center;}
+  </style>
+</head>
+<body>
+  <h3>Configuración del Puente Claumini</h3>
+  
+  <label>URL del Servidor WebSocket:</label>
+  <input type="text" id="serverUrl" placeholder="ws://localhost:3000">
+
+  <label>Selector de la Caja de Texto:</label>
+  <input type="text" id="inputSelector" placeholder="rich-textarea">
+
+  <label>Selector del Botón de Envío:</label>
+  <input type="text" id="buttonSelector" placeholder="button.send-button">
+
+  <label>Selector de la Respuesta de la IA:</label>
+  <input type="text" id="responseSelector" placeholder="message-content .markdown">
+
+  <button id="saveBtn">Guardar Configuración</button>
+  <div id="status"></div>
+
+  <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ccc; text-align: center;">
+    <p style="font-size: 14px; margin-bottom: 5px;">Estado: <strong id="connectionStatus">Desconectado</strong></p>
+    <button id="toggleBtn" style="background: #d32f2f;">Desconectado</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
