@@ -59,7 +59,7 @@ Una vez que el servidor está corriendo y la pestaña de Gemini está abierta co
 
 En IDEs (Trae, Cursor, etc.)
 Busca la configuración de modelos personalizados (Custom Models / OpenAI Compatible API) y establece:
- * **Base URL:** http://localhost:3000/v1
+ * **Base URL:** http://localhost:3000/
  * **API Key:** dummy-key (Puedes escribir cualquier cosa, el servidor no la valida).
  * **Model Name:** claumini-web (El nombre es ignorado por el puente).
 
@@ -68,7 +68,7 @@ Con Python (OpenAI SDK)
     from openai import OpenAI
 
     client = OpenAI(
-        base_url="http://localhost:3000/v1",
+        base_url="http://localhost:3000/",
         api_key="no-necesita-key"
     )
 
