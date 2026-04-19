@@ -1,3 +1,4 @@
+console.log('dddd')
 let config = {};
 let isProcessing = false;
 let socket = null;
@@ -33,6 +34,36 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
   }
 });
+
+// Tools
+async function humanWrite(inputEl, text) {
+  // Función interna para generar un retraso aleatorio (ej. entre 50ms y 150ms)
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+  let currentText = "";
+  const isEditable = inputEl.contentEditable === "true"
+  console.log( isEditable ? 'Es editable' : 'No es editable')
+  for (const char of text) {
+    currentText += char;
+
+    // Actualizamos el elemento según su tipo
+    if (isEditable) {
+      inputEl.textContent = currentText;
+    } else {
+      inputEl.value = currentText;
+    }
+
+    // Disparamos los eventos para que la web detecte el cambio
+    inputEl.dispatchEvent(new Event('input', { bubbles: true }));
+    // Generamos un tiempo de espera aleatorio entre caracteres
+    // Ajusta los números (10, 30) para escribir más rápido o más lento
+    const randomTime = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+    await delay(randomTime);
+  }
+
+  // Al finalizar, lanzamos el evento 'change'
+  inputEl.dispatchEvent(new Event('change', { bubbles: true }));
+}
 
 // 2. Conexión WebSocket
 function connectWebSocket() {
@@ -88,14 +119,7 @@ async function processMessage(text, messageId) {
   //  NUEVO: Contamos cuántas respuestas hay ANTES de enviar
   const initialResponseCount = document.querySelectorAll(config.responseSelector).length;
 
-  if (inputEl.contentEditable === "true") {
-    inputEl.textContent = text;
-  } else {
-    inputEl.value = text;
-  }
-
-  inputEl.dispatchEvent(new Event('input', { bubbles: true }));
-  inputEl.dispatchEvent(new Event('change', { bubbles: true }));
+  await humanWrite(inputEl, text)
 
   setTimeout(async () => {
     btnEl.click();

@@ -17,7 +17,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://claumini.google.com/*"],
+      "matches": [
+        "*://gemini.google.com/*",
+        "*://chatgpt.com/*",
+        "*://claude.ai/new",
+        "*://claude.ai/chat/*"
+      ],
       "js": ["content.js"]
     }
   ]

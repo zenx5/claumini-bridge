@@ -36,6 +36,8 @@ wss.on('connection',  (ws) => {
 
 app.use(generateRouter(bridgeContext))
 
+server.timeout = 300000
+
 server.listen(PORT, () => {
     console.log(`🚀 Servidor puente corriendo en el puerto ${PORT}`);
     console.log(`🔌 WebSocket disponible en: ws://localhost:${PORT}`);

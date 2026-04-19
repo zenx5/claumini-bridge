@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateUI(newState);
         
         // Le avisamos a la pestaña de la IA que actúe
-        chrome.tabs.query({ url: "*://claumini.google.com/*" }, (tabs) => {
+        chrome.tabs.query({ url: "*://gemini.google.com/*" }, (tabs) => {
           tabs.forEach(tab => {
             chrome.tabs.sendMessage(tab.id, { action: 'toggleConnection', enabled: newState });
           });
