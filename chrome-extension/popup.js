@@ -30,13 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleBtn.addEventListener('click', () => {
     chrome.storage.sync.get(['bridgeEnabled'], (data) => {
       const newState = !data.bridgeEnabled; // Invertimos el estado actual
-      
       // Guardamos el nuevo estado
       chrome.storage.sync.set({ bridgeEnabled: newState }, () => {
         updateUI(newState);
-        
+
         // Le avisamos a la pestaña de la IA que actúe
-        chrome.tabs.query({ url: "*://gemini.google.com/*" }, (tabs) => {
+        chrome.tabs.query({ url: [
+          "*://gemini.google.com/*",
+          "*://chatgpt.com/*",
+          "*://claude.ai/new",
+          "*://claude.ai/chat/*"
+        ] }, (tabs) => {
           tabs.forEach(tab => {
             chrome.tabs.sendMessage(tab.id, { action: 'toggleConnection', enabled: newState });
           });
