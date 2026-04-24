@@ -1,8 +1,9 @@
 # 🌉 Claumini Bridge
-
 ¡Convierte tu cuenta web gratuita de Google Gemini/Chatgpt/Claude en una API local compatible con el estándar de OpenAI!
 
 **Claumini** es un puente (Proxy) compuesto por un servidor Node.js y una extensión de Chrome que te permite conectar IDEs modernos con IA (como Trae, Cursor, Continue) o librerías (como LangChain, AutoGen) directamente a tu pestaña del navegador, ahorrando costos de API.
+
+<img width="140" height="75" alt="Frame 57" src="https://github.com/user-attachments/assets/65a606b4-f5be-477e-8fa2-0c3de8eda3c1" />
 
 ---
 
